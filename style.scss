@@ -26,6 +26,8 @@ $white: hsl(0, 0%, 100%);
 
 html {
   font-size: 10px;
+  scroll-behavior: smooth;
+
 }
 
 img {
@@ -83,9 +85,23 @@ a {
   color: $white;
   text-align: center;
   padding-bottom: 10rem;
+  // position: relative;
+  // z-index: -1;
 
   &__navbar {
     padding: 5rem 0;
+    position: relative;
+    z-index: 3;
+
+    @include m-q(600px) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      top: 0;
+      width: 100%;
+      padding: 1.3rem 0;
+      background: $box-bg-color;
+    }
   }
 
   &__navigation {
@@ -95,16 +111,55 @@ a {
   }
 
   &__nav-trigger {
+    border: none;
+    background: none;
     display: none;
+    cursor: pointer;
+
+    @include m-q(600px) {
+      display: block;
+    }
+  }
+
+  &__line {
+    width: 3rem;
+    height: .3rem;
+    border-radius: .5rem;
+    background-color: #ecf0f1;
+    display: block;
+    margin: .6rem auto;
+    
   }
 
   &__nav-list {
     list-style: none;
     display: flex;
+
+    @include m-q(600px) {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      opacity: 0;
+      transform: translateX(100%);
+      transition: 0.3s ease;
+      background: $secondary-color;
+      background: $white;
+      height: 100vh;
+      z-index: 10000;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
   }
 
   &__nav-item {
     margin: 0 1rem;
+
+    @include m-q(600px) {
+      margin: 0;
+      width: 100%;
+      border-bottom: 1px solid $secondary-color;
+    }
   }
 
   &__nav-link {
@@ -113,6 +168,12 @@ a {
     font-size: 1.6rem;
     position: relative;
     transition: 0.3s;
+
+    @include m-q(600px) {
+      padding: 2rem 3rem;
+      width: 100%;
+      text-align: left;
+    }
   }
 
   &__nav-link.active {
@@ -125,7 +186,43 @@ a {
       bottom: -5px;
       background: $white;
       transition: 0.3s;
+
+      @include m-q(600px) {
+        display: none;
+      }
     }
+
+    @include m-q(600px) {
+      background: #f2f2f2;
+      color: $dark-color;
+    }
+  }
+
+  &__back-btn {
+    display: flex;
+    align-items: center;
+    border: none;
+    border-bottom: 1px solid #bfbfbf;
+    background: none;
+    cursor: pointer;
+    display: none;
+
+    @include m-q(600px) {
+      display: flex;
+    }
+  }
+
+  &__back-img {
+    display: inline-block;
+    padding: 2.3rem;
+    border-right: 1px solid #bfbfbf;
+  }
+
+  &__back-text {
+    width: 100%;
+    text-align: center;
+    color: $secondary-color;
+    padding: 2.2rem 0;
   }
 
   &__heading {
@@ -150,8 +247,14 @@ a {
   }
 }
 
+.header__nav-list.is-active{
+  transform: translateX(0);
+  opacity: 1;
+}
+
 .features {
   position: relative;
+  z-index: 0;
   max-width: 123rem;
   padding: 0 1.5rem;
   width: 100%;
@@ -181,6 +284,7 @@ a {
     margin-bottom: 5rem;
     font-weight: normal;
     position: relative;
+    z-index: 0;
   }
 
   &__heading::after {
@@ -191,6 +295,7 @@ a {
     width: 4rem;
     height: 2px;
     background: $white;
+    z-index: -1;
   }
 
   &__description {
@@ -199,6 +304,7 @@ a {
 }
 
 .services {
+  scroll-margin-top: 6rem;
   padding: 5rem 1.5rem;
   text-align: center;
 
@@ -259,6 +365,7 @@ a {
 }
 
 .gallery {
+  scroll-margin-top: 6rem;
   width: 100%;
   max-width: 168rem;
   margin: 0 auto 10rem;
@@ -276,11 +383,13 @@ a {
 }
 
 .contact {
+  scroll-margin-top: 6rem;
   width: 100%;
   margin: 0 auto;
   max-width: 119rem;
   padding: 10rem 1.5rem;
   display: flex;
+  
 
   &__text {
     text-align: right;

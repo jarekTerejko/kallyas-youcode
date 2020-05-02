@@ -4,10 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer ></script>
     <title>Kallyas.</title>
   </head>
   <body>
-    <header class="header">
+    <header class="header" id="home">
       <div class="header__navbar">
         <div class="container">
           <nav class="header__navigation">
@@ -19,18 +20,20 @@
               <span class="header__line"></span>
               <span class="header__line"></span>
             </button>
+            
             <ul class="header__nav-list">
+                <button class="header__back-btn"><img src="/images/mobile-menu-back.png" alt="" class="header__back-img"><span class="header__back-text">Back</span></button>
               <li class="header__nav-item">
-                <a href="#" class="header__nav-link active">Home</a>
+                <a href="#home" class="header__nav-link active">Home</a>
               </li>
               <li class="header__nav-item">
-                <a href="#" class="header__nav-link">Services</a>
+                <a href="#services" class="header__nav-link">Services</a>
               </li>
               <li class="header__nav-item">
-                <a href="#" class="header__nav-link">Works</a>
+                <a href="#works" class="header__nav-link ">Works</a>
               </li>
               <li class="header__nav-item">
-                <a href="#" class="header__nav-link">Contact</a>
+                <a href="#contact" class="header__nav-link">Contact</a>
               </li>
             </ul>
           </nav>
@@ -89,7 +92,7 @@
       </div>
     </div>
     <main>
-      <section class="services">
+      <section class="services" id="services">
         <span class="services__intro">
           Services
         </span>
@@ -179,7 +182,7 @@
           </div>
         </div>
       </section>
-      <section class="gallery">
+      <section class="gallery" id="works">
         <img src="/images/gallery/1.jpg" class="gallery__img" alt="">
         <img src="/images/gallery/2.jpg" class="gallery__img"alt="">
         <img src="/images/gallery/3.jpg" class="gallery__img"alt="">
@@ -189,7 +192,7 @@
         <img src="/images/gallery/7.jpg" class="gallery__img"alt="">
         <img src="/images/gallery/8.jpg" class="gallery__img"alt="">
       </section>
-      <article class="contact">
+      <article class="contact" id="contact">
         <div class="contact__text">
           <h3 class="contact__heading">Want to have a professional project? <span class="contact__heading-block">Let's talk about it.</span></h3>
           <p class="contact__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis similique incidunt iusto natus, maxime impedit ipsum pariatur corporis distinctio. In, aliquid! Perferendis sit nulla fugit quos tempora</p>
