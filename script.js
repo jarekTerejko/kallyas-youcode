@@ -18,6 +18,7 @@ navOpenBtn.addEventListener("click", openNav);
 
 navCloseBtn.addEventListener("click", closeNav);
 
+// adds the "active" class to the link that was clicked
 navLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
     if (e.target.classList.contains("active")) {
@@ -32,3 +33,9 @@ navLinks.forEach((link) => {
     }
   });
 });
+
+// prevent page from reloading after form submit
+// no validation made
+document.querySelector(".contact__form").addEventListener('submit', e => {
+  e.preventDefault()
+})

@@ -27,7 +27,6 @@ $white: hsl(0, 0%, 100%);
 html {
   font-size: 10px;
   scroll-behavior: smooth;
-
 }
 
 img {
@@ -85,8 +84,15 @@ a {
   color: $white;
   text-align: center;
   padding-bottom: 10rem;
-  // position: relative;
-  // z-index: -1;
+
+  @include m-q(600px) {
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("images/background-mobile.jpg");
+  }
 
   &__navbar {
     padding: 5rem 0;
@@ -123,12 +129,11 @@ a {
 
   &__line {
     width: 3rem;
-    height: .3rem;
-    border-radius: .5rem;
+    height: 0.3rem;
+    border-radius: 0.5rem;
     background-color: #ecf0f1;
     display: block;
-    margin: .6rem auto;
-    
+    margin: 0.6rem auto;
   }
 
   &__nav-list {
@@ -215,7 +220,6 @@ a {
   &__back-img {
     display: inline-block;
     padding: 2.3rem;
-    border-right: 1px solid #bfbfbf;
   }
 
   &__back-text {
@@ -223,6 +227,8 @@ a {
     text-align: center;
     color: $secondary-color;
     padding: 2.2rem 0;
+    border-left: 1px solid #bfbfbf;
+
   }
 
   &__heading {
@@ -235,6 +241,15 @@ a {
     margin: 0 auto;
     text-transform: capitalize;
     margin-bottom: 5rem;
+
+    @include m-q(600px) {
+      padding-top: 12rem;
+      font-size: 5rem;
+    }
+
+    @include m-q(400px) {
+      font-size: 4rem;
+    }
   }
 
   &__description {
@@ -245,9 +260,17 @@ a {
     margin-bottom: 5rem;
     color: $secondary-color;
   }
+
+  .main-btn {
+    @include m-q(500px) {
+      width: 15rem;
+      padding: 1.3rem 0;
+      margin: 1rem;
+    }
+  }
 }
 
-.header__nav-list.is-active{
+.header__nav-list.is-active {
   transform: translateX(0);
   opacity: 1;
 }
@@ -263,11 +286,18 @@ a {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   column-gap: 1rem;
   row-gap: 1rem;
+  @include m-q(320px) {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
 
   &__box {
     padding: 6rem 4.5rem;
     background: $box-bg-color;
     color: $white;
+
+    @include m-q(370px) {
+      padding: 5rem 2rem;
+    }
   }
 
   &__box:first-child {
@@ -284,7 +314,10 @@ a {
     margin-bottom: 5rem;
     font-weight: normal;
     position: relative;
-    z-index: 0;
+
+    @include m-q(330px) {
+      margin-bottom: 3rem;
+    }
   }
 
   &__heading::after {
@@ -295,7 +328,10 @@ a {
     width: 4rem;
     height: 2px;
     background: $white;
-    z-index: -1;
+
+    @include m-q(330px) {
+      display: none;
+    }
   }
 
   &__description {
@@ -321,6 +357,14 @@ a {
     font-weight: 700;
     font-size: 5.7rem;
     margin-bottom: 3rem;
+
+    @include m-q(600px) {
+      font-size: 5rem;
+    }
+
+    @include m-q(400px) {
+      font-size: 4rem;
+    }
   }
 
   &__heading-accent {
@@ -341,6 +385,10 @@ a {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     column-gap: 2rem;
+
+    @include m-q(320px) {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
   }
 
   &__service-box {
@@ -375,6 +423,10 @@ a {
   column-gap: 1rem;
   row-gap: 1rem;
 
+  @include m-q(380px) {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
   &__img {
     height: 41rem;
     object-fit: cover;
@@ -387,12 +439,12 @@ a {
   width: 100%;
   margin: 0 auto;
   max-width: 119rem;
-  padding: 10rem 1.5rem;
+  padding: 8rem 1.5rem;
   display: flex;
-  
 
-  &__text {
-    text-align: right;
+  @include m-q(850px) {
+    display: block;
+    padding-top: 3rem;
   }
 
   &__heading {
@@ -402,6 +454,14 @@ a {
     margin-top: -1.4rem;
     margin-bottom: 4rem;
     line-height: 1.2;
+
+    @include m-q(1200px) {
+      font-size: 4.6rem;
+    }
+
+    @include m-q(950px) {
+      font-size: 4rem;
+    }
   }
 
   &__description {
@@ -411,6 +471,10 @@ a {
     &:first-of-type {
       margin-bottom: 2rem;
     }
+
+    @include m-q(850px) {
+      margin-bottom: 3rem;
+    }
   }
 
   &__heading-block {
@@ -418,15 +482,37 @@ a {
   }
 
   &__text {
+    text-align: right;
     flex-basis: 0;
     flex-grow: 1;
     margin-right: 5rem;
+
+    @include m-q(1200px) {
+      margin-right: 2rem;
+    }
+
+    @include m-q(850px) {
+      text-align: left;
+      margin-right: 0;
+    }
+
+    @include m-q(550px) {
+      text-align: center;
+    }
   }
 
   &__form-container {
     flex-basis: 0;
     flex-grow: 1;
     margin-left: 5rem;
+
+    @include m-q(1200px) {
+      margin-left: 2rem;
+    }
+
+    @include m-q(850px) {
+      margin-left: 0;
+    }
   }
 
   &__form {
@@ -459,10 +545,18 @@ a {
 
   &__input-container--company {
     grid-column: 1/2;
+
+    @include m-q(550px) {
+      grid-column: 1/3;
+    }
   }
 
   &__input-container--email {
     grid-column: 2/3;
+
+    @include m-q(550px) {
+      grid-column: 1/3;
+    }
   }
 
   &__input {
