@@ -40,8 +40,15 @@ document.querySelector(".contact__form").addEventListener('submit', e => {
   e.preventDefault()
 })
 
+// animate navbar on page scroll
 window.addEventListener("scroll", ()=> {
   const navbar = document.querySelector(".header__navbar")
 
   navbar.classList.toggle('scrolled', window.scrollY > 0)
+})
+
+// remove loader after all page load
+const spinnerWrapper = document.querySelector('.spinner-wrapper')
+window.addEventListener('load', () => {
+  spinnerWrapper.parentElement.removeChild(spinnerWrapper)
 })
