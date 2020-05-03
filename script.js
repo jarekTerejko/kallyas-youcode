@@ -39,3 +39,9 @@ navLinks.forEach((link) => {
 document.querySelector(".contact__form").addEventListener('submit', e => {
   e.preventDefault()
 })
+
+window.addEventListener("scroll", ()=> {
+  const navbar = document.querySelector(".header__navbar")
+
+  navbar.classList.toggle('scrolled', window.scrollY > 0)
+})

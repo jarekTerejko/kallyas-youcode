@@ -98,13 +98,14 @@ a {
     padding: 5rem 0;
     position: relative;
     z-index: 3;
+    transition: .3s ease-in;
+    position: fixed;
+    top: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
 
     @include m-q(600px) {
-      position: fixed;
-      top: 0;
-      left: 0;
-      top: 0;
-      width: 100%;
       padding: 1.3rem 0;
       background: $box-bg-color;
     }
@@ -172,7 +173,13 @@ a {
     padding: 0.5rem;
     font-size: 1.6rem;
     position: relative;
-    transition: 0.3s;
+    transition: 0.3s ease-in;
+
+    @media screen and (min-width:601px) {
+      &:hover{
+        color: $accent-color;
+      }
+    }
 
     @include m-q(600px) {
       padding: 2rem 3rem;
@@ -233,7 +240,7 @@ a {
 
   &__heading {
     max-width: 84rem;
-    padding-top: 4rem;
+    padding-top: 22rem; 
     font-family: "Source Sans Pro", sans-serif;
     font-weight: 700;
     font-size: 5.7rem;
@@ -275,6 +282,11 @@ a {
   opacity: 1;
 }
 
+.header__navbar.scrolled {
+  padding: 1.3rem 0;
+  background: $box-bg-color;
+}
+
 .features {
   position: relative;
   z-index: 0;
@@ -286,6 +298,7 @@ a {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   column-gap: 1rem;
   row-gap: 1rem;
+
   @include m-q(320px) {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
@@ -314,24 +327,17 @@ a {
     margin-bottom: 5rem;
     font-weight: normal;
     position: relative;
-
-    @include m-q(330px) {
-      margin-bottom: 3rem;
-    }
   }
 
   &__heading::after {
     content: "";
+    display: block;
     position: absolute;
     left: 0;
-    top: 4.5rem;
+    margin-top: 3rem;
     width: 4rem;
     height: 2px;
     background: $white;
-
-    @include m-q(330px) {
-      display: none;
-    }
   }
 
   &__description {
